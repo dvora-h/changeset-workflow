@@ -22,7 +22,7 @@ name: add-changes
 on:
   push:
     branches:
-      - mater
+      - master
 jobs:
   add-changes:
     runs-on: ubuntu-latest
