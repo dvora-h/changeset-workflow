@@ -26,5 +26,7 @@ on:
 jobs:
   add-changes:
     runs-on: ubuntu-latest
-    run: |
-      echo ${{ github.event.head_commit.message }} >> changes
+    steps:
+      - name: Update changes file
+      run: |
+        echo ${{ github.event.head_commit.message }} >> changes
