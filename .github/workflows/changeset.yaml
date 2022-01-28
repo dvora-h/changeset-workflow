@@ -1,20 +1,30 @@
-name: Changeset
+# name: Changeset
+# on:
+#   push:
+#     branches:
+#       - master
+# jobs:
+#   changeset:
+#     runs-on: ubuntu-latest
+#     timeout-minutes: 5
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v2
+#         with:
+#           fetch-depth: 0
+#       - name: Changeset
+#         uses: generates/changeset-action@v3.0.0
+#       - name: Commit Changes
+#         uses: generates/commit-action@v1.0.1
+#         with:
+#           token: ${{ secrets.GH_PAT }}
+name: add-changes
 on:
-  push:
-    branches:
-      - master
+  push
+  branches:
+    - mater
 jobs:
-  changeset:
+  add-changes:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Changeset
-        uses: generates/changeset-action@v3.0.0
-      - name: Commit Changes
-        uses: generates/commit-action@v1.0.1
-        with:
-          token: ${{ secrets.GH_PAT }}
+      run: echo ${{ github.event.head_commit.message }} >> changes
