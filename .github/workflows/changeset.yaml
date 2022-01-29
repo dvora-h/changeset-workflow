@@ -31,10 +31,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Update CHANGES file
         run: |
-          cd ..
-          cd ..
-          cd ..
-          cd ..
           pwd
           ls
 # pwd
