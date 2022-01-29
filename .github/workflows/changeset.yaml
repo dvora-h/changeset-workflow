@@ -29,7 +29,7 @@ jobs:
     steps:
       - name: Update CHANGES file
         run: |
-          ls
+          cd ..
           pwd
 # pwd
 # echo ${{ github.event.head_commit.message }} >> abc/changes.txt
