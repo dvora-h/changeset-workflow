@@ -21,8 +21,8 @@
 name: add-changes
 on:
   push:
-    paths-ignore:
-      - 'abc/**'
+    # paths-ignore:
+    #   - 'changes'
     branches:
       - master
 jobs:
