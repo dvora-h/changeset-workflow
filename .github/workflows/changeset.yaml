@@ -30,6 +30,9 @@ jobs:
       - name: Update CHANGES file
         run: |
           cd ..
+          cd ..
+          cd ..
+          cd ..
           pwd
           ls
 # pwd
