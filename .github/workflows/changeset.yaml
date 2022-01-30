@@ -27,7 +27,7 @@ on:
       - master
 jobs:
   add-changes:
-    runs-on: ubuntu-latest
+  runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
         with:
