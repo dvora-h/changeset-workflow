@@ -4,8 +4,6 @@ on:
     types: [opened]
     branches:
       - master
-    paths-ignore:
-      - 'CHANGES'
 jobs:
   update-changes:
     runs-on: ubuntu-latest
@@ -18,20 +16,17 @@ jobs:
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v14.6
-
-      - name: List all changed files
-        if: "contains(steps.changed-files.outputs.all_changed_files, 'CHANGES')" 
-        run: |
-          echo "It's there!"
           
       - name: Update CHANGES file
+        if: "contains(steps.changed-files.outputs.all_changed_files, 'CHANGES')" 
         run: |
           echo "${{ github.event.pull_request.title }}"
-          echo "* ${{ github.event.pull_request.title }}" Thanks @${{ github.actor }} > CHANGES2
+          echo "* ${{ github.event.pull_request.title }}" (#${{ github.event.pull_request.number }}) Thanks @${{ github.actor }} > CHANGES2
           cat CHANGES >> CHANGES2
           mv CHANGES2 CHANGES
-# sed -i '1s/^/* $PR_TITLE. Thanks @${{ github.actor }}\n/' CHANGES
+
       - name: Commit & Push changes
+        if: "contains(steps.changed-files.outputs.all_changed_files, 'CHANGES')"
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
