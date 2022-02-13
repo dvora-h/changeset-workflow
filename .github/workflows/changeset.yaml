@@ -16,7 +16,7 @@ jobs:
       - name: Update CHANGES file
         run: |
           echo ${{  github.event.pull_request.title  }}
-          echo ${{  github.event.head_commit.message  }}
+          echo ${{  github.event.head_commit.message  }} | head -n 1
 # sed -i '1s/^/* ${{ github.event.pull_request.title }}. Thanks @${{ github.actor }}\n/' CHANGES
       - name: Commit & Push changes
         uses: actions-js/push@master
