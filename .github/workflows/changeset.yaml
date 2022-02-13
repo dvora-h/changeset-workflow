@@ -21,8 +21,9 @@ jobs:
           echo "(abc)"
           TITLE="${{ github.event.head_commit.message }}"
           PR_TITLE=`echo "${TITLE}"| head -n 1`
-          echo "${PR_TITLE}"
-          sed -i '1s/^/* $PR_TITLE. Thanks @${{ github.actor }}\n/' CHANGES
+          echo "${PR_TITLE}" > CHANGES2
+          mv CHANGES2 CHANGES
+# sed -i '1s/^/* $PR_TITLE. Thanks @${{ github.actor }}\n/' CHANGES
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
