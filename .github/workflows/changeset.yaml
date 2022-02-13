@@ -18,7 +18,7 @@ jobs:
           echo ${{  github.event.pull_request.title  }}
           OUTPUT=$(ls -1)
           echo "${OUTPUT}"
-          echo (abc)
+          echo "(abc)"
           title=${{ github.event.head_commit.message }}
 # echo "${title}"
 # sed -i '1s/^/* ${{ github.event.pull_request.title }}. Thanks @${{ github.actor }}\n/' CHANGES
