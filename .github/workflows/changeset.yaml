@@ -26,5 +26,5 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: master
+          branch: ${GITHUB_REF##*/}
           message: ${{ github.event.head_commit.message }}
