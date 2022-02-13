@@ -15,12 +15,8 @@ jobs:
           fetch-depth: 0
       - name: Update CHANGES file
         run: |
-          echo ${{  github.event.pull_request.title  }}
-          OUTPUT=$(ls -1)
-          echo "${OUTPUT}"
-          echo "(abc)"
           TITLE="${{ github.event.head_commit.message }}"
-          PR_TITLE=`echo "${TITLE}"| head -n 1`
+          PR_TITLE=`echo ${{ github.event.head_commit.message }} | head -n 1`
           echo "${PR_TITLE}" Thanks @${{ github.actor }} > CHANGES2
           cat CHANGES >> CHANGES2
           mv CHANGES2 CHANGES
