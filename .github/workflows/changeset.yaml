@@ -20,7 +20,7 @@ jobs:
           echo "${OUTPUT}"
           echo "(abc)"
           TITLE="${{ github.event.head_commit.message }}"
-          echo "${TITLE}"
+          echo "${TITLE}" | head -n 1
 # sed -i '1s/^/* ${{ github.event.pull_request.title }}. Thanks @${{ github.actor }}\n/' CHANGES
       - name: Commit & Push changes
         uses: actions-js/push@master
