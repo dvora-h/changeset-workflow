@@ -17,7 +17,7 @@ jobs:
       - name: Update CHANGES file
         run: |
           echo "${{ github.event.pull_request.title }}"
-          echo "* ${{ github.event.pull_request.title }}" Thanks @${{ github.actor }} > CHANGES2
+          echo "* ${{ github.event.pull_request.title }}". Thanks @${{ github.actor }} > CHANGES2
           cat CHANGES >> CHANGES2
           mv CHANGES2 CHANGES
 # sed -i '1s/^/* $PR_TITLE. Thanks @${{ github.actor }}\n/' CHANGES
