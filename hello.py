@@ -1,3 +1,5 @@
 print("hiiiiiiiiiii")
 print("wowwwwwwwwwww")
 print("yeshhhhhhhhhh")
+print("dvori")
+print("heller")
