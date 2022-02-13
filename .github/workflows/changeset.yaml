@@ -19,7 +19,7 @@ jobs:
           OUTPUT=$(ls -1)
           echo "${OUTPUT}"
           echo "(abc)"
-# title=${{ github.event.head_commit.message }}
+          title="${{ github.event.head_commit.message }}"
 # echo "${title}"
 # sed -i '1s/^/* ${{ github.event.pull_request.title }}. Thanks @${{ github.actor }}\n/' CHANGES
       - name: Commit & Push changes
