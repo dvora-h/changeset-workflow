@@ -22,6 +22,7 @@ jobs:
           TITLE="${{ github.event.head_commit.message }}"
           PR_TITLE=`echo "${TITLE}"| head -n 1`
           echo "${PR_TITLE}" > CHANGES2
+          cat CHANGES >> CHANGES2
           mv CHANGES2 CHANGES
 # sed -i '1s/^/* $PR_TITLE. Thanks @${{ github.actor }}\n/' CHANGES
       - name: Commit & Push changes
