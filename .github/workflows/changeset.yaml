@@ -16,15 +16,16 @@ jobs:
           fetch-depth: 0
       - name: Update CHANGES file
         run: |
+          echo ${{ github.head_ref }}
           COMMIT="${{ github.event.head_commit.message }}"
           PR_TITLE=`echo "${COMMIT}" | head -n 1`
           echo "* ${PR_TITLE}" Thanks @${{ github.actor }} > CHANGES2
           cat CHANGES >> CHANGES2
           mv CHANGES2 CHANGES
 # sed -i '1s/^/* $PR_TITLE. Thanks @${{ github.actor }}\n/' CHANGES
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${GITHUB_REF##*/}
-          message: ${{ github.event.head_commit.message }}
+      # - name: Commit & Push changes
+      #   uses: actions-js/push@master
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     branch: ${GITHUB_REF##*/}
+      #     message: ${{ github.event.head_commit.message }}
