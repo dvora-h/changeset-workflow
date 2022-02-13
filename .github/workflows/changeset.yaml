@@ -17,9 +17,7 @@ jobs:
       - name: Update CHANGES file
         run: |
           echo "${{ github.event.pull_request.title }}"
-          COMMIT="${{ github.event.head_commit.message }}"
-          PR_TITLE=`echo "${COMMIT}" | head -n 1`
-          echo "* ${PR_TITLE}" Thanks @${{ github.actor }} > CHANGES2
+          echo "* ${{ github.event.pull_request.title }}" Thanks @${{ github.actor }} > CHANGES2
           cat CHANGES >> CHANGES2
           mv CHANGES2 CHANGES
 # sed -i '1s/^/* $PR_TITLE. Thanks @${{ github.actor }}\n/' CHANGES
@@ -28,4 +26,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.head_ref }}
-          message: ${{ github.event.head_commit.message }}
+          message: "Update CHANGES file"
