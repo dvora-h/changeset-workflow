@@ -20,10 +20,9 @@ jobs:
         uses: tj-actions/changed-files@v14.6
 
       - name: List all changed files
+        if: "contains(steps.changed-files.outputs.all_changed_files, 'CHANGES')" 
         run: |
-          if [[ "${{ steps.changed-files.outputs.all_changed_files }}" == *"CHANGES"** ]]; then
-            echo "It's there!"
-          fi
+          echo "It's there!"
           
       - name: Update CHANGES file
         run: |
