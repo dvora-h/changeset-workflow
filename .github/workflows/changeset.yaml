@@ -21,7 +21,9 @@ jobs:
 
       - name: List all changed files
         run: |
-          echo [[ ${{ steps.changed-files.outputs.all_changed_files }} == *"CHANGES"* ]]
+          if [[ "${{ steps.changed-files.outputs.all_changed_files }}" == *"CHANGES"** ]]; then
+            echo "It's there!"
+          fi
           
       - name: Update CHANGES file
         run: |
