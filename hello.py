@@ -1,5 +1,4 @@
 print("hiiiiiiiiiii")
-print("wowwwwwwwwwww")
 print("yeshhhhhhhhhh")
 print("Dvori")
 print("Heller")
