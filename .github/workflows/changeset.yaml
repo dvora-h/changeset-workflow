@@ -15,6 +15,7 @@ jobs:
           fetch-depth: 0
       - name: Update CHANGES file
         run: |
+          echo ${{  github.event.pull_request.title  }}
           echo ${{  github.event.head_commit.message  }}
 # sed -i '1s/^/* ${{ github.event.pull_request.title }}. Thanks @${{ github.actor }}\n/' CHANGES
       - name: Commit & Push changes
