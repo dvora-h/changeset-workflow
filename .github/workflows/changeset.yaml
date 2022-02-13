@@ -1,11 +1,10 @@
 name: Update CHANGES File
 on:
-  pull_request:
-    types: [opened]
-    branches:
-      - master
+  push:
     paths-ignore:
       - 'CHANGES'
+    branches:
+      - master
 jobs:
   update-changes:
     runs-on: ubuntu-latest
