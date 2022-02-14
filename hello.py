@@ -1,4 +1,6 @@
-print("hiiiiiiiiiii")
-print("yeshhhhhhhhhh")
 print("Dvori")
 print("Heller")
+print("Tzivia")
+print("Elish")
+print("Ayala")
+print("Yael")
