@@ -18,7 +18,7 @@ jobs:
         uses: tj-actions/changed-files@v14.6
           
       - name: Update CHANGES file
-        if: "contains(steps.changed-files.outputs.all_changed_files, 'CHANGES')" 
+        if: "!contains(steps.changed-files.outputs.all_changed_files, 'CHANGES')" 
         run: |
           echo "${{ github.event.pull_request.title }}"
           echo "* ${{ github.event.pull_request.title }} (#${{ github.event.pull_request.number }}). Thanks @${{ github.actor }}" > CHANGES2
@@ -26,7 +26,7 @@ jobs:
           mv CHANGES2 CHANGES
 
       - name: Commit & Push changes
-        if: "contains(steps.changed-files.outputs.all_changed_files, 'CHANGES')"
+        if: "!contains(steps.changed-files.outputs.all_changed_files, 'CHANGES')"
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
